@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhlp.pages.mapper.CourseMapper" >
+  <resultMap id="BaseResultMap" type="com.lhlp.student.entity.Course" >
+    <id column="COURID" property="courid" jdbcType="DECIMAL" />
+    <result column="COURNAME" property="courname" jdbcType="VARCHAR" />
+    <result column="COURSCORE" property="courscore" jdbcType="DECIMAL" />
+    <result column="TEST3" property="test3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    COURID, COURNAME, COURSCORE, TEST3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from COURSE
+    where COURID = #{courid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from COURSE
+    where COURID = #{courid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.lhlp.student.entity.Course" >
+    insert into COURSE (COURID, COURNAME, COURSCORE, 
+      TEST3)
+    values (#{courid,jdbcType=DECIMAL}, #{courname,jdbcType=VARCHAR}, #{courscore,jdbcType=DECIMAL}, 
+      #{test3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lhlp.student.entity.Course" >
+    insert into COURSE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="courid != null" >
+        COURID,
+      </if>
+      <if test="courname != null" >
+        COURNAME,
+      </if>
+      <if test="courscore != null" >
+        COURSCORE,
+      </if>
+      <if test="test3 != null" >
+        TEST3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="courid != null" >
+        #{courid,jdbcType=DECIMAL},
+      </if>
+      <if test="courname != null" >
+        #{courname,jdbcType=VARCHAR},
+      </if>
+      <if test="courscore != null" >
+        #{courscore,jdbcType=DECIMAL},
+      </if>
+      <if test="test3 != null" >
+        #{test3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lhlp.student.entity.Course" >
+    update COURSE
+    <set >
+      <if test="courname != null" >
+        COURNAME = #{courname,jdbcType=VARCHAR},
+      </if>
+      <if test="courscore != null" >
+        COURSCORE = #{courscore,jdbcType=DECIMAL},
+      </if>
+      <if test="test3 != null" >
+        TEST3 = #{test3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COURID = #{courid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lhlp.student.entity.Course" >
+    update COURSE
+    set COURNAME = #{courname,jdbcType=VARCHAR},
+      COURSCORE = #{courscore,jdbcType=DECIMAL},
+      TEST3 = #{test3,jdbcType=VARCHAR}
+    where COURID = #{courid,jdbcType=DECIMAL}
+  </update>
+</mapper>

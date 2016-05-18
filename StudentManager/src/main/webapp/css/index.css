@@ -1,0 +1,54 @@
+*{
+	font-family:"微软雅黑";
+}
+
+#copyright p{
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold;
+	text-align: center;
+	padding:10px 0px;
+	margin:0px;
+	letter-spacing:0.2em;
+}
+
+#copyright a{
+	display:inline-block;
+	height:32px;
+	line-height:32px;
+	text-decoration: none;
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:30px;
+	background:url("../image/leaf24.png") no-repeat left center;
+}
+
+#newslogo{
+	background:#fff url("../image/header.png");
+	background-size:1366px 65px;
+	padding:0px;
+	margin:0px;
+	height:65px;
+}
+
+#top_login_right{
+	height:35px;
+	line-height:35px;
+	float:right;
+	margin-right:80px;
+	margin-top: 20px;
+}
+#top_login_right a{
+	text-decoration: none;
+	color:#fff;
+}
+#anameNeed{
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: bold;
+	font-family: "楷体"
+}
+#exit{
+	line-height: 32px;
+}
